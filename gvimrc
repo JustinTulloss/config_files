@@ -2,14 +2,11 @@
 set winwidth=85
 let g:halfsize = 86
 let g:fullsize = 171
-set lines=50
+set lines=41
 let &columns = g:halfsize
 
 " Font
 set guifont=Monaco:h15.00
-
-" No audible bell
-set vb
 
 " No toolbar
 set guioptions-=T

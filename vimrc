@@ -26,6 +26,10 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
+" Highlight everything that overflows 80 chars
+highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
+match OverLength /\%81v.*/
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -69,13 +73,10 @@ if has("folding")
   " autocmd BufReadPost .foldo!
 endif
 
-" Softtabs, 2 spaces
-set tabstop=2
-set shiftwidth=2
+" Softtabs, 4 spaces
+set tabstop=4
+set shiftwidth=4
 set expandtab
-
-" Always display the status line
-set laststatus=2
 
 " \ is the leader character
 let mapleader = "\\"
