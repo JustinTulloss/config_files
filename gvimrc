@@ -7,7 +7,7 @@ let &columns = g:halfsize
 
 " Font
 "set guifont=Monaco:h15.00 "Mac
-set guifont=Courier\ 10\ Pitch\ Bold\ 14 "Linux
+set guifont=Courier\ 10\ Pitch\ Bold\ 12 "Linux
 
 " No toolbar
 set guioptions-=T
