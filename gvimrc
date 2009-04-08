@@ -6,7 +6,8 @@ set lines=41
 let &columns = g:halfsize
 
 " Font
-set guifont=Monaco:h15.00
+"set guifont=Monaco:h15.00 "Mac
+set guifont=Courier\ 10\ Pitch\ Bold\ 14 "Linux
 
 " No toolbar
 set guioptions-=T
