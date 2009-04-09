@@ -1,4 +1,6 @@
 *.swp
 .swo
-jferris-*.gemspec
 *.scratch.*
+*.pyc
+*.swm
+*.swn
