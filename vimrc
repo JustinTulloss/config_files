@@ -80,6 +80,11 @@ set expandtab
 set smarttab
 set smartindent
 
+map <silent><C-,> :bn
+map <silent><C-.> :bp
+map <silent><C-/> :b#
+
+set hidden
 
 " \ is the leader character
 let mapleader = "\\"
