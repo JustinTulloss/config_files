@@ -80,6 +80,13 @@ set expandtab
 set smarttab
 set smartindent
 
+" Tags configuration
+let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
+let Tlist_Show_One_File = 1       " Only show tags for current buffer
+let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
+let tlist_sql_settings = 'sql;P:package;t:table'
+let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
+set tags=tags;/
 
 " \ is the leader character
 let mapleader = "\\"
@@ -107,6 +114,13 @@ map <Leader>sf :RSfunctionaltest
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
+" Ctags shortcuts
+map <Leader>t :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <Leader>tl :TlistToggle <CR>
+
+" NERD Tree
+map <Leader>ls :NERDTreeToggle <CR>
+
 " Opens an edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>e
 map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -120,7 +134,7 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
-"imap <Tab> <C-N>
+imap <C-Tab> <C-N>
 
 " Duplicate a selection
 " Visual mode: D
