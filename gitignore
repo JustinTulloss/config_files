@@ -3,3 +3,5 @@
 *.gemspec
 *.scratch.*
 *.pyc
+*.swm
+*.swn
