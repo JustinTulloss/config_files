@@ -93,6 +93,7 @@ let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
 let tlist_sql_settings = 'sql;P:package;t:table'
 let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
 set tags=tags;/
+set tags+=$HOME/.python-stdlib.ctags
 
 " \ is the leader character
 let mapleader = "\\"
