@@ -54,6 +54,9 @@ if has("autocmd")
     \   exe "normal g`\"" |
     \ endif
 
+  autocmd BufReadPost * :DetectIndent
+    :let g:detectindent_preferred_expandtab = 1
+    :let g:detectindent_preferred_indent = 4
   augroup END
 
 else
