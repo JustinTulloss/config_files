@@ -5,3 +5,6 @@
 *.pyc
 *.swm
 *.swn
+tags
+TAGS
+pip-log.txt
