@@ -18,15 +18,6 @@ setopt prompt_subst
 # prompt
 export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
 
-# autocompletion for ruby_test
-# works with tu/tf aliases
-_ruby_tests() {
-  if [[ -n $words[2] ]]; then
-    compadd `ruby_test -l ${words[2]}`
-  fi
-}
-compdef _ruby_tests ruby_test
-
 _git_remote_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
