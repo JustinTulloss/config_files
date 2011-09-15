@@ -174,3 +174,6 @@ set wildmode=list:longest,list:full
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
+
+"less highlighting
+au BufNewFile,BufRead *.less set filetype=less
