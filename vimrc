@@ -7,10 +7,10 @@ set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50    " keep 50 lines of command line history
+set ruler    " show the cursor position all the time
+set showcmd    " display incomplete commands
+set incsearch    " do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -61,7 +61,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -122,6 +122,8 @@ map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 " Set debugging
 map <Leader>p Iimport pdb;pdb.set_trace()<CR><ESC>
 
+map <Leader>d Idebugger;<CR><ESC>
+
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
@@ -144,10 +146,6 @@ imap <C-F> <C-R>=expand("%")<CR>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! RTroutes :tabe config/routes.rb
 
 " Local config
 if filereadable(".vimrc.local")
