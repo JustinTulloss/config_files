@@ -5,6 +5,8 @@ git_prompt_info() {
   fi
 }
 
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+
 # makes color constants available
 autoload -U colors
 colors

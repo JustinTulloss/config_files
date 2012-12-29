@@ -30,3 +30,6 @@ setopt histignoredups
 
 # keep more history
 export HISTSIZE=200
+
+export GOPATH=$HOME/Dev/go
+export PATH=/usr/local/bin:$HOME/Dev/go/bin:$PATH
