@@ -191,3 +191,7 @@ set wildmode=list:longest,list:full
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
+
+" Pathogen support
+" https://github.com/tpope/vim-pathogen
+call pathogen#infect()
