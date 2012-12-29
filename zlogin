@@ -20,6 +20,10 @@ setopt prompt_subst
 # prompt
 export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
 
+export NODE_PATH="/usr/local/lib/node_modules"
+
+PATH=/usr/local/bin:$PATH:/usr/local/mysql/bin:/usr/local/sbin:$HOME/bin
+
 _git_remote_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then

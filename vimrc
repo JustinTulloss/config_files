@@ -7,10 +7,10 @@ set backspace=indent,eol,start
 
 set nobackup
 set nowritebackup
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+set history=50    " keep 50 lines of command line history
+set ruler    " show the cursor position all the time
+set showcmd    " display incomplete commands
+set incsearch    " do incremental searching
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -61,7 +61,7 @@ if has("autocmd")
 
 else
 
-  set autoindent		" always set autoindenting on
+  set autoindent    " always set autoindenting on
 
 endif " has("autocmd")
 
@@ -101,26 +101,6 @@ set tags+=$HOME/.python-stdlib.ctags
 " \ is the leader character
 let mapleader = "\\"
 
-" Edit the README_FOR_APP (makes :R commands work)
-map <Leader>R :e doc/README_FOR_APP<CR>
-
-" Leader shortcuts for Rails commands
-map <Leader>m :Rmodel 
-map <Leader>c :Rcontroller 
-map <Leader>v :Rview 
-map <Leader>u :Runittest 
-map <Leader>f :Rfunctionaltest 
-map <Leader>tm :RTmodel 
-map <Leader>tc :RTcontroller 
-map <Leader>tv :RTview 
-map <Leader>tu :RTunittest 
-map <Leader>tf :RTfunctionaltest 
-map <Leader>sm :RSmodel 
-map <Leader>sc :RScontroller 
-map <Leader>sv :RSview 
-map <Leader>su :RSunittest 
-map <Leader>sf :RSfunctionaltest 
-
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
 
@@ -138,6 +118,11 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
 map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+
+" Set debugging
+map <Leader>p Iimport pdb;pdb.set_trace()<CR><ESC>
+
+map <Leader>d Idebugger;<CR><ESC>
 
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
@@ -161,10 +146,6 @@ imap <C-F> <C-R>=expand("%")<CR>
 
 " Display extra whitespace
 set list listchars=tab:»·,trail:·
-
-" Edit routes
-command! Rroutes :e config/routes.rb
-command! RTroutes :tabe config/routes.rb
 
 " Local config
 if filereadable(".vimrc.local")
@@ -195,3 +176,6 @@ set smartcase
 " Pathogen support
 " https://github.com/tpope/vim-pathogen
 call pathogen#infect()
+
+"less highlighting
+au BufNewFile,BufRead *.less set filetype=less

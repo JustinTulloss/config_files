@@ -33,3 +33,16 @@ export HISTSIZE=200
 
 export GOPATH=$HOME/Dev/go
 export PATH=/usr/local/bin:$HOME/Dev/go/bin:$PATH
+
+if [ -e "$HOME/Dev/phd/arcanist/resources/shell/bash-completion" ]; then
+  source "$HOME/Dev/phd/arcanist/resources/shell/bash-completion"
+fi
+
+__git_files () { 
+    _wanted files expl 'local files' _files     
+}
+
+if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
+  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
