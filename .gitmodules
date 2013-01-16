@@ -1,0 +1,6 @@
+[submodule "syntastic"]
+	path = syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "vim/autoload/syntastic"]
+	path = vim/autoload/syntastic
+	url = https://github.com/scrooloose/syntastic.git

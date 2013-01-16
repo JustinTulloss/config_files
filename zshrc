@@ -39,10 +39,10 @@ if [ -e "$HOME/Dev/phd/arcanist/resources/shell/bash-completion" ]; then
 fi
 
 __git_files () { 
-    _wanted files expl 'local files' _files     
+  _wanted files expl 'local files' _files
 }
 
-if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
+if [ -e "/usr/local/share/python/virtualenvwrapper.sh" ]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-  source /usr/local/bin/virtualenvwrapper.sh
+  source /usr/local/share/python/virtualenvwrapper.sh
 fi

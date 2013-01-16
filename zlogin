@@ -22,7 +22,7 @@ export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$f
 
 export NODE_PATH="/usr/local/lib/node_modules"
 
-PATH=/usr/local/bin:$PATH:/usr/local/mysql/bin:/usr/local/sbin:$HOME/bin
+PATH=/usr/local/bin:$PATH:/usr/local/mysql/bin:/usr/local/sbin:$HOME/bin:$HOME/Dev/arcanist/arcanist/bin
 
 _git_remote_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)

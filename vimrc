@@ -11,6 +11,8 @@ set history=50    " keep 50 lines of command line history
 set ruler    " show the cursor position all the time
 set showcmd    " display incomplete commands
 set incsearch    " do incremental searching
+set exrc " enable per-directory .vimrc files
+set secure " disable unsafe commands in local .vimrc files
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -105,8 +107,12 @@ let mapleader = "\\"
 map <Leader>h :set invhls <CR>
 
 " Ctags shortcuts
-map <Leader>t :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-map <Leader>tl :TlistToggle <CR>
+"map <Leader>t :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+"map <Leader>tl :TlistToggle <CR>
+
+" Ctrlp shortcuts
+" https://github.com/kien/ctrlp.vim
+map <Leader>t :CtrlP <CR>
 
 " NERD Tree
 map <Leader>ls :NERDTreeToggle <CR>
@@ -117,7 +123,7 @@ map <Leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Opens a tab edit command with the path of the currently edited file filled in
 " Normal mode: <Leader>t
-map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
+" map <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 
 " Set debugging
 map <Leader>p Iimport pdb;pdb.set_trace()<CR><ESC>
@@ -179,3 +185,12 @@ call pathogen#infect()
 
 "less highlighting
 au BufNewFile,BufRead *.less set filetype=less
+
+call pathogen#infect()
+
+" enable omnicomplete as appropriate for various files
+autocmd FileType python set omnifunc=pythoncomplete#Complete
+autocmd FileType javascript set omnifunc=ribscomplete#CompleteRibs
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+autocmd FileType css set omnifunc=csscomplete#CompleteCSS
