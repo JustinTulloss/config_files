@@ -173,5 +173,9 @@ set wildmode=list:longest,list:full
 set ignorecase
 set smartcase
 
+" Pathogen support
+" https://github.com/tpope/vim-pathogen
+call pathogen#infect()
+
 "less highlighting
 au BufNewFile,BufRead *.less set filetype=less
