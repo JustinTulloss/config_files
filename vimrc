@@ -31,10 +31,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
-" Highlight everything that overflows 80 chars
-highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
-match OverLength /\%81v.*/
-
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -189,6 +185,11 @@ au BufNewFile,BufRead *.less set filetype=less
 colorscheme vividchalk
 highlight NonText guibg=#060606
 highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Highlight everything that overflows 80 chars
+highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
+match OverLength /\%81v.*/
+
 
 " Powerline setup
 set rtp+=./powerline/powerline/bindings/vim
