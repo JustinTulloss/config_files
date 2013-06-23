@@ -4,3 +4,6 @@
 [submodule "powerline"]
 	path = powerline
 	url = git@github.com:Lokaltog/powerline.git
+[submodule "powerline-daemon"]
+	path = powerline-daemon
+	url = git@github.com:kovidgoyal/powerline-daemon.git
