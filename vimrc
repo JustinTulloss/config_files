@@ -15,6 +15,11 @@ set incsearch    " do incremental searching
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+" Make sure we're recognizing 256 color terminals
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
@@ -179,3 +184,8 @@ call pathogen#infect()
 
 "less highlighting
 au BufNewFile,BufRead *.less set filetype=less
+
+" Color scheme
+colorscheme vividchalk
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
