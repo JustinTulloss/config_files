@@ -17,6 +17,11 @@ set secure " disable unsafe commands in local .vimrc files
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
+" Make sure we're recognizing 256 color terminals
+if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gnome-terminal"
+  set t_Co=256
+endif
+
 " This is an alternative that also works in block mode, but the deleted
 " text is lost and it only works for putting the current register.
 "vnoremap p "_dp
@@ -27,10 +32,6 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   syntax on
   set hlsearch
 endif
-
-" Highlight everything that overflows 80 chars
-highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
-match OverLength /\%81v.*/
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -186,11 +187,23 @@ call pathogen#infect()
 "less highlighting
 au BufNewFile,BufRead *.less set filetype=less
 
-call pathogen#infect()
-
 " enable omnicomplete as appropriate for various files
 autocmd FileType python set omnifunc=pythoncomplete#Complete
 autocmd FileType javascript set omnifunc=ribscomplete#CompleteRibs
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
+
+" Color scheme
+colorscheme vividchalk
+highlight NonText guibg=#060606
+highlight Folded  guibg=#0A0A0A guifg=#9090D0
+
+" Highlight everything that overflows 80 chars
+highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
+match OverLength /\%81v.*/
+
+
+" Powerline setup
+"set rtp+=./powerline/powerline/bindings/vim
+set laststatus=2

@@ -1,6 +1,9 @@
-[submodule "syntastic"]
-	path = syntastic
+[submodule "vim/bundle/syntastic"]
+	path = vim/bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/autoload/syntastic"]
-	path = vim/autoload/syntastic
-	url = https://github.com/scrooloose/syntastic.git
+[submodule "powerline"]
+	path = powerline
+	url = git@github.com:Lokaltog/powerline.git
+[submodule "powerline-daemon"]
+	path = powerline-daemon
+	url = git@github.com:kovidgoyal/powerline-daemon.git
