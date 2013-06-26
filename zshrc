@@ -55,5 +55,5 @@ git_prompt_info() {
   fi
 }
 
-export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%2c%{$reset_color%}] '
+export PS1='[${SSH_CONNECTION+"%{$fg_bold[yellow]%}%n@%m:"}%{$fg_bold[blue]%}%2c%{$reset_color%}] '
 export RPROMPT='$(git_prompt_info)'
