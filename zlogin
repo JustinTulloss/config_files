@@ -1,3 +1,19 @@
+# use vim as an editor
+export EDITOR=vim
+
+export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+
+# enable colored output from ls, etc
+export CLICOLOR=1
+
+# aliases
+if [ -e "$HOME/.aliases" ]; then
+  source "$HOME/.aliases"
+fi
+
+# prompt
+export PS1='[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
+
 git_prompt_info() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)
   if [[ -n $ref ]]; then
@@ -5,40 +21,17 @@ git_prompt_info() {
   fi
 }
 
-export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
-
-# makes color constants available
-autoload -U colors
-colors
-
-# enable colored output from ls, etc
-export CLICOLOR=1
-
-# expand functions in the prompt
-setopt prompt_subst
-
-# prompt
-export PS1='$(git_prompt_info)[${SSH_CONNECTION+"%{$fg_bold[green]%}%n@%m:"}%{$fg_bold[blue]%}%~%{$reset_color%}] '
-
-export NODE_PATH="/usr/local/lib/node_modules"
-
-PATH=/usr/local/bin:$PATH:/usr/local/mysql/bin:/usr/local/sbin:$HOME/bin
-
-_git_remote_branch() {
-  ref=$(git symbolic-ref HEAD 2> /dev/null)
-  if [[ -n $ref ]]; then
-    if (( CURRENT == 2 )); then
-      # first arg: operation
-      compadd create publish rename delete track
-    elif (( CURRENT == 3 )); then
-      # second arg: remote branch name
-      compadd `git branch -r | grep -v HEAD | sed "s/.*\///" | sed "s/ //g"`
-    elif (( CURRENT == 4 )); then
-      # third arg: remote name
-      compadd `git remote`
-    fi
-  else;
-    _files
+powerline_repo="`pwd`/powerline"
+if [ -e "$powerline_repo" ]; then
+  export POWERLINE_COMMAND="$powerline_repo/scripts/powerline"
+  powerline_daemon_repo="`pwd`/powerline-daemon"
+  if [ -e "$powerline_daemon_repo" ]; then
+    # $powerline_daemon_repo/powerline-daemon --replace
+    POWERLINE_COMMAND="$powerline_daemon_repo/powerline-client"
   fi
-}
-compdef _git_remote_branch grb
+  source $powerline_repo/powerline/bindings/zsh/powerline.zsh
+else
+  # prompt
+  export PS1="$(git_prompt_info)$PS1"
+fi
+
