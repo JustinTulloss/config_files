@@ -4,16 +4,15 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 autoload -U compinit
 compinit
 
+# makes color constants available
+autoload -U colors
+colors
+
 # automatically enter directories without cd
 setopt auto_cd
 
-# use vim as an editor
-export EDITOR=vim
-
-# aliases
-if [ -e "$HOME/.aliases" ]; then
-  source "$HOME/.aliases"
-fi
+# expand functions in the prompt
+setopt prompt_subst
 
 # vi mode
 bindkey -v
@@ -31,7 +30,7 @@ setopt histignoredups
 export HISTSIZE=200
 
 export GOPATH=$HOME/Dev/go
-export PATH=/usr/local/bin:$HOME/Dev/go/bin:$PATH
+PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:$PATH
 
 if [ -e "$HOME/Dev/phd/arcanist/resources/shell/bash-completion" ]; then
   source "$HOME/Dev/phd/arcanist/resources/shell/bash-completion"
