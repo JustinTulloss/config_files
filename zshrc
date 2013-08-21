@@ -32,8 +32,9 @@ export HISTSIZE=200
 export GOPATH=$HOME/Dev/go
 PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:$PATH
 
-if [ -e "$HOME/Dev/phd/arcanist/resources/shell/bash-completion" ]; then
-  source "$HOME/Dev/phd/arcanist/resources/shell/bash-completion"
+if [ -e "$HOME/Dev/arcanist/arcanist/resources/shell/bash-completion" ]; then
+  source "$HOME/Dev/arcanist/arcanist/resources/shell/bash-completion"
+  PATH=$HOME/Dev/arcanist/arcanist/bin:$PATH
 fi
 
 if [ -e "/usr/local/share/python/virtualenvwrapper.sh" ]; then
