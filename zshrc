@@ -37,9 +37,9 @@ if [ -e "$HOME/Dev/arcanist/arcanist/resources/shell/bash-completion" ]; then
   PATH=$HOME/Dev/arcanist/arcanist/bin:$PATH
 fi
 
-if [ -e "/usr/local/share/python/virtualenvwrapper.sh" ]; then
+if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
   export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
-  source /usr/local/share/python/virtualenvwrapper.sh
+  source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 __git_files () { 
