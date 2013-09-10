@@ -1,5 +1,6 @@
 Bundle 'airblade/vim-gitgutter'
 Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'ciaranm/detectindent'
 Bundle 'gmarik/vundle'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
