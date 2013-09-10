@@ -13,6 +13,18 @@ set showcmd    " display incomplete commands
 set incsearch    " do incremental searching
 set exrc " enable per-directory .vimrc files
 set secure " disable unsafe commands in local .vimrc files
+set clipboard=unnamed " share clipboard with the system
+set encoding=utf-8
+
+filetype on " without this vim emits a zero exit status, later, because of :ft off
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" install Vundle bundles
+if filereadable(expand("~/.vimrc.bundles"))
+  source ~/.vimrc.bundles
+endif
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
