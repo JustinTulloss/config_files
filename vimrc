@@ -207,3 +207,28 @@ match OverLength /\%81v.*/
 " Powerline setup
 "set rtp+=./powerline/powerline/bindings/vim
 set laststatus=2
+
+" show a navigable menu for tab completion
+set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.pyc
+set wildmenu
+set wildmode=longest,list,full
+
+" automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
+
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('ag')
+  let g:ackprg = 'ag --nogroup --column'
+
+  " Use Ag over Grep
+  set grepprg=ag\ --nogroup\ --nocolor
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+
+" Enable basic mouse behavior such as resizing buffers.
+set mouse=a
+if exists('$TMUX')  " Support resizing in tmux
+  set ttymouse=xterm2
+endif
+
