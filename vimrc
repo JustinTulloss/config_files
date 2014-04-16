@@ -81,14 +81,7 @@ else
 endif " has("autocmd")
 
 if has("folding")
-  set foldenable
-  set foldmethod=syntax
-  set foldlevel=1
-  set foldnestmax=2
-  set foldtext=strpart(getline(v:foldstart),0,50).'\ ...\ '.substitute(getline(v:foldend),'^[\ #]*','','g').'\ '
-
-  " automatically open folds at the starting cursor position
-  " autocmd BufReadPost .foldo!
+  set nofoldenable
 endif
 
 " Softtabs, 4 spaces
@@ -205,7 +198,6 @@ autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 " Color scheme
 colorscheme vividchalk
 highlight NonText guibg=#060606
-highlight Folded  guibg=#0A0A0A guifg=#9090D0
 
 " Highlight everything that overflows 80 chars
 highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
@@ -239,4 +231,3 @@ set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
-
