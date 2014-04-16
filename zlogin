@@ -1,5 +1,3 @@
-export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
-
 export EDITOR=vim
 
 _git_remote_branch() {
@@ -9,6 +7,3 @@ _git_remote_branch() {
   fi
 }
 compdef _git_remote_branch grb
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
