@@ -10,7 +10,8 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = ~/.gitignore
+	excludesfile = /opt/boxen/config/git/gitignore
+ autocrlf = input
 [alias]
   c = commit -m
   a = add
@@ -21,3 +22,11 @@
   plre = pull --rebase
   st = status
   out = log origin..HEAD
+
+
+
+[credential]
+helper = /opt/boxen/bin/boxen-git-credential
+
+[hub]
+protocol = https
