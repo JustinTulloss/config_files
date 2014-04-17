@@ -46,6 +46,10 @@ if [ -e "$BOXEN_HOME/env.sh" ]; then
   source "$BOXEN_HOME/env.sh"
 fi
 
+if [ -f $HOME/.aliases ]; then
+  source $HOME/.aliases
+fi
+
 __git_files () { 
   _wanted files expl 'local files' _files
 }

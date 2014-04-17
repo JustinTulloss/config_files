@@ -1,5 +1,4 @@
 alias g="git"
 alias sprunge="git diff master | curl -F 'sprunge=<-' http://sprunge.us | pbcopy"
 alias cdrvws="curl -F 'rvw=<-' http://cdrv.ws"
-alias gvim="mvim"
-alias vim="mvim -v"
+alias julia="/Applications/Julia-0.2.1.app/Contents/Resources/julia/bin/julia"
