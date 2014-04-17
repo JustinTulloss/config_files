@@ -42,6 +42,10 @@ if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
   source /usr/local/bin/virtualenvwrapper.sh
 fi
 
+if [ -e "$BOXEN_HOME/env.sh" ]; then
+  source "$BOXEN_HOME/env.sh"
+fi
+
 __git_files () { 
   _wanted files expl 'local files' _files
 }
