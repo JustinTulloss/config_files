@@ -29,12 +29,12 @@ setopt histignoredups
 # keep more history
 export HISTSIZE=200
 
-export GOPATH=$HOME/Dev/go
+export GOPATH=$BOXEN_SRC_DIR/go
 PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:$PATH
 
-if [ -e "$HOME/Dev/arcanist/arcanist/resources/shell/bash-completion" ]; then
-  source "$HOME/Dev/arcanist/arcanist/resources/shell/bash-completion"
-  PATH=$HOME/Dev/arcanist/arcanist/bin:$PATH
+if [ -e "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion" ]; then
+  source "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion"
+  PATH=$BOXEN_SRC_DIR/arcanist/arcanist/bin:$PATH
 fi
 
 if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
