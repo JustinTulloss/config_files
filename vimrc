@@ -45,6 +45,13 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
+" Softtabs, 4 spaces by default, but let language indent prefs override below
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set smarttab
+set smartindent
+
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
@@ -83,13 +90,6 @@ endif " has("autocmd")
 if has("folding")
   set nofoldenable
 endif
-
-" Softtabs, 4 spaces
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
-set smartindent
 
 map <silent><C-,> :bn
 map <silent><C-.> :bp
@@ -190,7 +190,6 @@ au BufNewFile,BufRead *.less set filetype=less
 
 " enable omnicomplete as appropriate for various files
 autocmd FileType python set omnifunc=pythoncomplete#Complete
-autocmd FileType javascript set omnifunc=ribscomplete#CompleteRibs
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
