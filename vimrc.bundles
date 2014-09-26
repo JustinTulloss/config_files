@@ -21,3 +21,5 @@ Bundle 'guns/vim-clojure-highlight'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'marijnh/tern_for_vim'
+Bundle 'nsf/gocode', {'rtp': 'vim/'}
+Bundle 'mxw/vim-jsx'
