@@ -97,24 +97,11 @@ map <silent><C-/> :b#
 
 set hidden
 
-" Tags configuration
-let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
-let Tlist_Show_One_File = 1       " Only show tags for current buffer
-let Tlist_Enable_Fold_Column = 0  " no fold column (only showing one file)
-let tlist_sql_settings = 'sql;P:package;t:table'
-let tlist_ant_settings = 'ant;p:Project;r:Property;t:Target'
-set tags=tags;/
-set tags+=$HOME/.python-stdlib.ctags
-
 " \ is the leader character
 let mapleader = "\\"
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
-
-" Ctags shortcuts
-"map <Leader>t :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-"map <Leader>tl :TlistToggle <CR>
 
 " Ctrlp shortcuts
 " https://github.com/kien/ctrlp.vim
@@ -148,10 +135,10 @@ au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
 au FileType go nmap <Leader>dt <Plug>(go-def-tab)
 
 " Go tools
-au FileType go nmap <Leader>r <Plug>(go-run)
-au FileType go nmap <Leader>b <Plug>(go-build)
-au FileType go nmap <Leader>t <Plug>(go-test)
-au FileType go nmap <Leader>c <Plug>(go-coverage)
+au FileType go nmap <Leader>gr <Plug>(go-run)
+au FileType go nmap <Leader>gb <Plug>(go-build)
+au FileType go nmap <Leader>gt <Plug>(go-test)
+au FileType go nmap <Leader>gc <Plug>(go-coverage)
 
 " Go docs in a browser
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
@@ -169,7 +156,7 @@ let g:go_fmt_command = "goimports"
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
-" imap <C-Tab> <C-N>
+imap <C-Tab> <C-N>
 
 " Duplicate a selection
 " Visual mode: D
@@ -195,14 +182,6 @@ endif
 " Numbers
 set number
 set numberwidth=5
-
-" Snippets are activated by Shift+Tab
-" let g:snippetsEmu_key = "<S-Tab>"
-
-" Tab completion options
-" (only complete to the longest unambiguous match, and show a menu)
-"set completeopt=longest,menu
-"set wildmode=list:longest,list:full
 
 " case only matters with mixed case expressions
 set ignorecase
