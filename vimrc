@@ -136,12 +136,40 @@ map <Leader>p Iimport pdb;pdb.set_trace()<CR><ESC>
 
 map <Leader>d Idebugger;<CR><ESC>
 
+" Semantic gd with golang
+au FileType go nmap gd <Plug>(go-def)
+
+" Go rename variable
+au FileType go nmap <Leader>n <Plug>(go-rename)
+
+" Open up go definitions in different splits
+au FileType go nmap <Leader>ds <Plug>(go-def-split)
+au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+
+" Go tools
+au FileType go nmap <Leader>r <Plug>(go-run)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>t <Plug>(go-test)
+au FileType go nmap <Leader>c <Plug>(go-coverage)
+
+" Go docs in a browser
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+
+" Interface inspection
+au FileType go nmap <Leader>s <Plug>(go-implements)
+
+" Type inspection
+au FileType go nmap <Leader>i <Plug>(go-info)
+
+let g:go_fmt_command = "goimports"
+
 " Inserts the path of the currently edited file into a command
 " Command mode: Ctrl+P
 cmap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 
 " Maps autocomplete to tab
-imap <C-Tab> <C-N>
+" imap <C-Tab> <C-N>
 
 " Duplicate a selection
 " Visual mode: D
@@ -164,22 +192,17 @@ if filereadable(".vimrc.local")
   source .vimrc.local
 endif
 
-" Use Ack instead of Grep when available
-if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
-endif
-
 " Numbers
 set number
 set numberwidth=5
 
 " Snippets are activated by Shift+Tab
-let g:snippetsEmu_key = "<S-Tab>"
+" let g:snippetsEmu_key = "<S-Tab>"
 
 " Tab completion options
 " (only complete to the longest unambiguous match, and show a menu)
-set completeopt=longest,menu
-set wildmode=list:longest,list:full
+"set completeopt=longest,menu
+"set wildmode=list:longest,list:full
 
 " case only matters with mixed case expressions
 set ignorecase
@@ -187,12 +210,6 @@ set smartcase
 
 "less highlighting
 au BufNewFile,BufRead *.less set filetype=less
-
-" enable omnicomplete as appropriate for various files
-autocmd FileType python set omnifunc=pythoncomplete#Complete
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 
 " Color scheme
 colorscheme vividchalk
@@ -215,6 +232,11 @@ set wildmode=longest,list,full
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
 
+" Use Ack instead of Grep when available
+if executable("ack")
+  set grepprg=ack\ -H\ --nogroup\ --nocolor
+endif
+
 " Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
 if executable('ag')
   let g:ackprg = 'ag --nogroup --column'
@@ -230,3 +252,18 @@ set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
   set ttymouse=xterm2
 endif
+
+" Utilisnips expand on carriage return 
+" Taken from https://github.com/Valloric/YouCompleteMe/issues/420#issuecomment-55940039
+let g:UltiSnipsExpandTrigger = "<nop>"
+let g:ulti_expand_or_jump_res = 0
+function ExpandSnippetOrCarriageReturn()
+    let snippet = UltiSnips#ExpandSnippetOrJump()
+    if g:ulti_expand_or_jump_res > 0
+        return snippet
+    else
+        return "\<CR>"
+    endif
+endfunction
+inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
+
