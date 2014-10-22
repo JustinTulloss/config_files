@@ -198,7 +198,6 @@ highlight NonText guibg=#060606
 highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
 match OverLength /\%81v.*/
 
-
 " Powerline setup
 "set rtp+=./powerline/powerline/bindings/vim
 set laststatus=2
@@ -207,6 +206,10 @@ set laststatus=2
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.pyc
 set wildmenu
 set wildmode=longest,list,full
+
+" YouCompleteMe configuration
+set completeopt=menuone
+let g:ycm_add_preview_to_completeopt = 0
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
