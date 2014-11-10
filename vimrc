@@ -210,6 +210,10 @@ set wildmode=longest,list,full
 " YouCompleteMe configuration
 set completeopt=menuone
 let g:ycm_add_preview_to_completeopt = 0
+let g:ycm_server_use_vim_stdout = 1
+" let g:ycm_server_keep_logfiles = 1
+
+" let g:syntastic_go_checkers = []
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
