@@ -1,4 +1,4 @@
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=($HOMEBREW_ROOT/share/zsh-completions $fpath)
 
 # completion
 autoload -U compinit
@@ -30,7 +30,8 @@ setopt histignoredups
 export HISTSIZE=200
 
 export GOPATH=$BOXEN_SRC_DIR/go
-PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:$PATH
+export GOROOT=/opt/boxen/homebrew/opt/go/libexec/
+PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/opt/boxen/homebrew/opt/go/libexec/bin:~/.bin/eb/macosx/python2.7:$GOPATH/bin:$PATH
 
 if [ -e "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion" ]; then
   source "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion"
@@ -67,3 +68,10 @@ git_prompt_info() {
 
 export PS1='[${SSH_CONNECTION+"%{$fg_bold[yellow]%}%n@%m:"}%{$fg_bold[blue]%}%2c%{$reset_color%}] '
 export RPROMPT='$(git_prompt_info)'
+export DOCKER_HOST=tcp://localhost:2375
+
+# The next line updates PATH for the Google Cloud SDK.
+source "$HOME/google-cloud-sdk/path.zsh.inc"
+
+# The next line enables bash completion for gcloud.
+source "$HOME/google-cloud-sdk/completion.zsh.inc"
