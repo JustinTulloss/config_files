@@ -68,6 +68,7 @@ git_prompt_info() {
 
 export PS1='[${SSH_CONNECTION+"%{$fg_bold[yellow]%}%n@%m:"}%{$fg_bold[blue]%}%2c%{$reset_color%}] '
 export RPROMPT='$(git_prompt_info)'
+
 export DOCKER_HOST=tcp://localhost:2375
 
 # The next line updates PATH for the Google Cloud SDK.
@@ -75,3 +76,6 @@ source "$HOME/google-cloud-sdk/path.zsh.inc"
 
 # The next line enables bash completion for gcloud.
 source "$HOME/google-cloud-sdk/completion.zsh.inc"
+
+# Support for hackon
+source /Users/justin/src/hackon/hackon.sh
