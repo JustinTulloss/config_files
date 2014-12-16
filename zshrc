@@ -1,4 +1,4 @@
-fpath=($HOMEBREW_ROOT/share/zsh-completions $fpath)
+fpath=($HOMEBREW_ROOT/share/zsh/site-functions $fpath)
 
 # completion
 autoload -U compinit

@@ -196,6 +196,7 @@ highlight NonText guibg=#060606
 
 " Highlight everything that overflows 80 chars
 highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
+au FileType markdown highlight OverLength none
 match OverLength /\%81v.*/
 
 " Powerline setup
@@ -214,6 +215,7 @@ let g:ycm_server_use_vim_stdout = 1
 " let g:ycm_server_keep_logfiles = 1
 
 " let g:syntastic_go_checkers = []
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
