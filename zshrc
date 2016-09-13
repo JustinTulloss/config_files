@@ -39,7 +39,8 @@ if [ -e "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion" ]; th
 fi
 
 if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
-  export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python
+  export WORKON_HOME=$HOME/.virtualenvs
+  export PROJECT_HOME=$HOME/src
   source /usr/local/bin/virtualenvwrapper.sh
 fi
 
@@ -80,4 +81,12 @@ if [ -d "$HOME/google-cloud-sdk/" ]; then
 fi
 
 # Support for hackon
-source /Users/justin/src/hackon/hackon.sh
+[[ -s "$HOME/src/scripts/rvm" ]] && source $HOME/src/hackon/hackon.sh
+
+# RVM support. RVM is evil so don't always have this enabled.
+#[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# rbenv support
+eval "$(rbenv init -)"

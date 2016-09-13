@@ -210,12 +210,15 @@ set wildmode=longest,list,full
 
 " YouCompleteMe configuration
 set completeopt=menuone
-let g:ycm_add_preview_to_completeopt = 0
-let g:ycm_server_use_vim_stdout = 1
-" let g:ycm_server_keep_logfiles = 1
+" let g:ycm_add_preview_to_completeopt = 0
+" let g:ycm_server_use_vim_stdout = 1
+let g:ycm_server_keep_logfiles = 1
 
 " let g:syntastic_go_checkers = []
-let g:syntastic_javascript_checkers = ['jsxhint']
+let g:syntastic_javascript_checkers = ['flow', 'eslint']
+
+" Disable flow on save, since syntastic will do that
+let g:flow#enable = 0
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
@@ -255,6 +258,16 @@ function ExpandSnippetOrCarriageReturn()
 endfunction
 inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
 
+" NeoComplete config
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
 " Tagbar config for go
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -283,3 +296,4 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
