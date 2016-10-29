@@ -3,6 +3,5 @@ alias sprunge="git diff master | curl -F 'sprunge=<-' http://sprunge.us | pbcopy
 alias cdrvws="curl -F 'rvw=<-' http://cdrv.ws"
 alias julia="/Applications/Julia-0.2.1.app/Contents/Resources/julia/bin/julia"
 alias mygo="cd $GOPATH/src/github.com/JustinTulloss"
-alias denv="eval \"$(docker-machine env dev-docker)\""
 
 hash -d ostrander="${GOPATH}/src/github.com/JustinTulloss/ostrander"
