@@ -1,3 +1,7 @@
+command_exists () {
+  type "$1" &> /dev/null ;
+}
+
 fpath=($HOMEBREW_ROOT/share/zsh/site-functions $fpath)
 
 # completion
@@ -31,7 +35,7 @@ export HISTSIZE=200
 
 export GOPATH=$BOXEN_SRC_DIR/go
 export GOROOT=/opt/boxen/homebrew/opt/go/libexec/
-PATH=/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/opt/boxen/homebrew/opt/go/libexec/bin:~/.bin/eb/macosx/python2.7:$GOPATH/bin:$PATH
+PATH=./node_modules/.bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/opt/boxen/homebrew/opt/go/libexec/bin:~/.bin/eb/macosx/python2.7:$GOPATH/bin:$PATH
 
 if [ -e "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion" ]; then
   source "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion"
@@ -90,3 +94,12 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # rbenv support
 eval "$(rbenv init -)"
+
+# nodenv support
+eval "$(nodenv init -)"
+
+if [ -f ~/.fzf.zsh ]; then
+  source ~/.fzf.zsh
+fi
+
+ export FZF_DEFAULT_COMMAND='rg --files --follow'

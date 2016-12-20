@@ -18,13 +18,13 @@ set encoding=utf-8
 
 filetype on " without this vim emits a zero exit status, later, because of :ft off
 filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
 
-" install Vundle bundles
-if filereadable(expand("~/.vimrc.bundles"))
-  source ~/.vimrc.bundles
+call plug#begin('~/.vim/plugged')
+" install vim plugs
+if filereadable(expand("~/.vimrc.plugs"))
+  source ~/.vimrc.plugs
 endif
+call plug#end()
 
 " Don't use Ex mode, use Q for formatting
 map Q gq
@@ -238,6 +238,14 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
+" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
+
+  " Use rg over ag
+  set grepprg=rg\ --vimgrep
+endif
+
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
 if exists('$TMUX')  " Support resizing in tmux
@@ -297,3 +305,15 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+
+" FZF config
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+nnoremap <c-p> :FZF<cr>
+
+" Do jsx highlighting even on .js files
+let g:jsx_ext_required = 0
+let g:javascript_plugin_flow = 1
+let g:javascript_plugin_jsdoc = 1

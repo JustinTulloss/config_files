@@ -1,6 +1,6 @@
 # ADD LOCAL CONFIGURATION HERE
 [user]
-	email = justin.tulloss@gmail.com
+	email = jt@stripe.com
 	name = Justin Tulloss
 
 
@@ -10,7 +10,6 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile = /opt/boxen/config/git/gitignore
 	autocrlf = input
 
 [alias]
@@ -27,7 +26,5 @@
 [hub]
 protocol = https
 
-[credential]
-helper = /opt/boxen/bin/boxen-git-credential
 [push]
 	default = simple
