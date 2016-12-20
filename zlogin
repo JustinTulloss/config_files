@@ -1,5 +1,7 @@
 export EDITOR=vim
-export HOMEBREW_ROOT=$(brew --prefix)
+if type "brew" &> /dev/null; then
+  export HOMEBREW_ROOT=$(brew --prefix)
+fi
 
 _git_remote_branch() {
   ref=$(git symbolic-ref HEAD 2> /dev/null)

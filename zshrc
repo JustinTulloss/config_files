@@ -94,10 +94,15 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 eval "$(rbenv init -)"
 
 # nodenv support
+export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
 
 if [ -f ~/.fzf.zsh ]; then
   source ~/.fzf.zsh
+fi
+
+if [ -f $HOME/.cargo/env ]; then
+ source $HOME/.cargo/env
 fi
 
  export FZF_DEFAULT_COMMAND='rg --files --follow'
