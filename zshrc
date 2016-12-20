@@ -74,8 +74,6 @@ git_prompt_info() {
 export PS1='[${SSH_CONNECTION+"%{$fg_bold[yellow]%}%n@%m:"}%{$fg_bold[blue]%}%2c%{$reset_color%}] '
 export RPROMPT='$(git_prompt_info)'
 
-export DOCKER_HOST=tcp://localhost:2375
-
 if [ -d "$HOME/google-cloud-sdk/" ]; then
   # The next line updates PATH for the Google Cloud SDK.
   source "$HOME/google-cloud-sdk/path.zsh.inc"
