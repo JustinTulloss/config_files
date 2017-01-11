@@ -24,14 +24,16 @@ bindkey -v
 # use incremental search
 bindkey ^R history-incremental-search-backward
 
-# expand functions in the prompt
-setopt prompt_subst
-
 # ignore duplicate history entries
 setopt histignoredups
 
 # keep more history
-export HISTSIZE=200
+export HISTSIZE=20000
+export HISTFILE=~/.zsh-history
+export SAVEHIST=$HISTSIZE
+setopt appendhistory # append history to history file
+setopt sharehistory # share across terminals
+setopt incappendhistory # immediately append
 
 export GOPATH=$BOXEN_SRC_DIR/go
 export GOROOT=/opt/boxen/homebrew/opt/go/libexec/
