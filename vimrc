@@ -214,6 +214,15 @@ set completeopt=menuone
 " let g:ycm_server_use_vim_stdout = 1
 let g:ycm_server_keep_logfiles = 1
 
+"Use locally installed flow if available
+let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
+if matchstr(local_flow, "^\/\\w") == ''
+    let local_flow= getcwd() . "/" . local_flow
+endif
+if executable(local_flow)
+  let g:syntastic_javascript_flow_exe = local_flow
+endif
+
 " let g:syntastic_go_checkers = []
 let g:syntastic_javascript_checkers = ['flow', 'eslint']
 
@@ -307,6 +316,7 @@ let g:tagbar_type_go = {
 
 
 " FZF config
+set rtp+=/usr/local/opt/fzf
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
