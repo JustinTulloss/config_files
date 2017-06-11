@@ -3,7 +3,6 @@ Plug 'ciaranm/detectindent'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vividchalk'
 Plug 'vim-scripts/greplace.vim'
@@ -17,6 +16,9 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rizzatti/dash.vim'
 Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 Plug 'ervandew/supertab'
-Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'wokalski/autocomplete-flow'
 Plug 'sheerun/vim-polyglot'
 Plug 'mxw/vim-jsx'
+Plug 'w0rp/ale'
+Plug 'tpope/vim-sleuth'

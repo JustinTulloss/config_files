@@ -75,12 +75,6 @@ if has("autocmd")
     \ if line("'\"") > 0 && line("'\"") <= line("$") |
     \   exe "normal g`\"" |
     \ endif
-
-  autocmd BufReadPost * :DetectIndent
-    :let g:detectindent_preferred_expandtab = 1
-    :let g:detectindent_preferred_indent = 4
-  augroup END
-
 else
 
   set autoindent    " always set autoindenting on
@@ -247,7 +241,7 @@ if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
+" Use ripgrep
 if executable('rg')
   let g:ackprg = 'rg --vimgrep'
 
@@ -257,7 +251,7 @@ endif
 
 " Enable basic mouse behavior such as resizing buffers.
 set mouse=a
-if exists('$TMUX')  " Support resizing in tmux
+if (!has('nvim') && exists('$TMUX')) " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
