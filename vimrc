@@ -45,41 +45,13 @@ if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
   set hlsearch
 endif
 
-" Softtabs, 4 spaces by default, but let language indent prefs override below
 set tabstop=4
-set shiftwidth=4
-set expandtab
-set smarttab
+set shiftwidth=2
 set smartindent
+set smarttab
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
+filetype plugin indent on
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
-
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-else
-
-  set autoindent    " always set autoindenting on
-
-endif " has("autocmd")
 
 if has("folding")
   set nofoldenable
@@ -180,6 +152,7 @@ set numberwidth=5
 " case only matters with mixed case expressions
 set ignorecase
 set smartcase
+
 
 "less highlighting
 au BufNewFile,BufRead *.less set filetype=less
