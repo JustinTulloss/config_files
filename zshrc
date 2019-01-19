@@ -93,11 +93,15 @@ fi
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 # rbenv support
-eval "$(rbenv init -)"
+if type "rbenv" &> /dev/null; then
+  eval "$(rbenv init -)"
+fi
 
 # nodenv support
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
+if [ -d $HOME/.nodenv/bin ]; then
+  export PATH="$HOME/.nodenv/bin:$PATH"
+  eval "$(nodenv init -)"
+fi
 
 if [ -f ~/.fzf.zsh ]; then
   source ~/.fzf.zsh
@@ -107,4 +111,4 @@ if [ -f $HOME/.cargo/env ]; then
  source $HOME/.cargo/env
 fi
 
- export FZF_DEFAULT_COMMAND='rg --files --follow'
+export FZF_DEFAULT_COMMAND='rg --files --follow'
