@@ -228,20 +228,6 @@ if (!has('nvim') && exists('$TMUX')) " Support resizing in tmux
   set ttymouse=xterm2
 endif
 
-" Utilisnips expand on carriage return 
-" Taken from https://github.com/Valloric/YouCompleteMe/issues/420#issuecomment-55940039
-let g:UltiSnipsExpandTrigger = "<nop>"
-let g:ulti_expand_or_jump_res = 0
-function ExpandSnippetOrCarriageReturn()
-    let snippet = UltiSnips#ExpandSnippetOrJump()
-    if g:ulti_expand_or_jump_res > 0
-        return snippet
-    else
-        return "\<CR>"
-    endif
-endfunction
-inoremap <expr> <CR> pumvisible() ? "<C-R>=ExpandSnippetOrCarriageReturn()<CR>" : "\<CR>"
-
 " NeoComplete config
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
