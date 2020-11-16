@@ -97,8 +97,16 @@ if type "rbenv" &> /dev/null; then
   eval "$(rbenv init -)"
 fi
 
+if [ -d "$HOME/stripe/space-commander/bin" ]; then
+  export PATH="$HOME/stripe/space-commander/bin:$PATH"
+fi
+
+if [ -d "$HOME/stripe/password-vault/bin" ]; then
+  export PATH="$HOME/stripe/password-vault/bin:$PATH"
+fi
+
 # nodenv support
-if [ -d $HOME/.nodenv/bin ]; then
+if [ -d $HOME/.nodenv/shims ]; then
   export PATH="$HOME/.nodenv/bin:$PATH"
   eval "$(nodenv init -)"
 fi
