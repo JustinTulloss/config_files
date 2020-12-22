@@ -1,22 +1,11 @@
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'majutsushi/tagbar'
+Plug 'junegunn/fzf'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-vividchalk'
-Plug 'vim-scripts/greplace.vim'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim'
-Plug 'SirVer/ultisnips'
-Plug 'endenizen/vim-bujagali'
-Plug 'cespare/vim-go-templates', { 'for': 'go' }
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'rizzatti/dash.vim'
-Plug 'flowtype/vim-flow', { 'for': 'javascript' }
 Plug 'ervandew/supertab'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'wokalski/autocomplete-flow'
+Plug 'Shougo/deoplete.nvim'
 Plug 'sheerun/vim-polyglot'
 Plug 'w0rp/ale'
 Plug 'tpope/vim-sleuth'

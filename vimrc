@@ -52,7 +52,6 @@ set smarttab
 
 filetype plugin indent on
 
-
 if has("folding")
   set nofoldenable
 endif
@@ -238,6 +237,13 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 
+"ale config
+let g:ale_fixers = {
+  \  'javascript': ['eslint'],
+\}
+
+let g:ale_fix_on_save = 1
+
 " Tagbar config for go
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -269,7 +275,7 @@ let g:tagbar_type_go = {
 
 
 " FZF config
-set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/local/bin/fzf
 let g:fzf_action = {
       \ 'ctrl-s': 'split',
       \ 'ctrl-v': 'vsplit'
