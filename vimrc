@@ -34,10 +34,6 @@ if $TERM == "xterm-256color" || $TERM == "screen-256color" || $COLORTERM == "gno
   set t_Co=256
 endif
 
-" This is an alternative that also works in block mode, but the deleted
-" text is lost and it only works for putting the current register.
-"vnoremap p "_dp
-
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -67,10 +63,6 @@ let mapleader = "\\"
 
 " Hide search highlighting
 map <Leader>h :set invhls <CR>
-
-" Ctrlp shortcuts
-" https://github.com/kien/ctrlp.vim
-map <Leader>t :CtrlP <CR>
 
 " NERD Tree
 map <Leader>ls :NERDTreeToggle <CR>
@@ -127,9 +119,6 @@ imap <C-Tab> <C-N>
 " Visual mode: D
 vmap D y'>p
 
-" For Haml
-au! BufRead,BufNewFile *.haml         setfiletype haml
-
 " No Help, please
 nmap <F1> <Esc>
 
@@ -165,20 +154,12 @@ highlight OverLength ctermbg=red ctermfg=white guibg=#FCA08D
 au FileType markdown highlight OverLength none
 match OverLength /\%81v.*/
 
-" Powerline setup
-"set rtp+=./powerline/powerline/bindings/vim
 set laststatus=2
 
 " show a navigable menu for tab completion
 set wildignore=log/**,node_modules/**,target/**,tmp/**,*.rbc,*.pyc
 set wildmenu
 set wildmode=longest,list,full
-
-" YouCompleteMe configuration
-set completeopt=menuone
-" let g:ycm_add_preview_to_completeopt = 0
-" let g:ycm_server_use_vim_stdout = 1
-let g:ycm_server_keep_logfiles = 1
 
 "Use locally installed flow if available
 let local_flow = finddir('node_modules', '.;') . '/.bin/flow'
