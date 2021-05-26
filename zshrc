@@ -35,23 +35,14 @@ setopt appendhistory # append history to history file
 setopt sharehistory # share across terminals
 setopt incappendhistory # immediately append
 
-export GOPATH=$BOXEN_SRC_DIR/go
-export GOROOT=/opt/boxen/homebrew/opt/go/libexec/
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec/"
 PATH=./node_modules/.bin:/usr/local/bin:/usr/local/mysql/bin:/usr/local/sbin:/usr/local/opt/ruby/bin:/opt/boxen/homebrew/opt/go/libexec/bin:~/.bin/eb/macosx/python2.7:$GOPATH/bin:$PATH
-
-if [ -e "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion" ]; then
-  source "$BOXEN_SRC_DIR/arcanist/arcanist/resources/shell/bash-completion"
-  PATH=$BOXEN_SRC_DIR/arcanist/arcanist/bin:$PATH
-fi
 
 if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
   export WORKON_HOME=$HOME/.virtualenvs
   export PROJECT_HOME=$HOME/src
   source /usr/local/bin/virtualenvwrapper.sh
-fi
-
-if [ -e "$BOXEN_HOME/env.sh" ]; then
-  source "$BOXEN_HOME/env.sh"
 fi
 
 if [ -f $HOME/.aliases ]; then
