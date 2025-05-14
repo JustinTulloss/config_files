@@ -75,6 +75,11 @@ if [ -d "$HOME/google-cloud-sdk/" ]; then
   source "$HOME/google-cloud-sdk/completion.zsh.inc"
 fi
 
+if [ -d "$HOME/.config/uv/" ]; then
+  # Add completions
+  source "$HOME/.config/uv/completions.sh"
+fi
+
 # Support for hackon
 [[ -s "$HOME/src/scripts/rvm" ]] && source $HOME/src/hackon/hackon.sh
 
@@ -86,14 +91,6 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 # rbenv support
 if type "rbenv" &> /dev/null; then
   eval "$(rbenv init -)"
-fi
-
-if [ -d "$HOME/stripe/space-commander/bin" ]; then
-  export PATH="$HOME/stripe/space-commander/bin:$PATH"
-fi
-
-if [ -d "$HOME/stripe/password-vault/bin" ]; then
-  export PATH="$HOME/stripe/password-vault/bin:$PATH"
 fi
 
 # nodenv support
@@ -111,3 +108,10 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 export FZF_DEFAULT_COMMAND='rg --files --follow'
+
+# bun completions
+[ -s "/Users/justin/.bun/_bun" ] && source "/Users/justin/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
